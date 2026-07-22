@@ -2,6 +2,7 @@ import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import { createBrowserRouter, RouterProvider, Link, Outlet } from "react-router";
 import './index.css'
+import './main.css'
 import Shop from './components/Shop.jsx';
 import Cart from './components/Cart.jsx';
 import Checkout from './components/Checkout.jsx';

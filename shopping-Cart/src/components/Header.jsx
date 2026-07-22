@@ -4,7 +4,9 @@ export default function Header() {
 
     return (
         <header>
-            <h1>Gamers's World</h1>
+            <h1>
+                <Link to="/">Gamers' World</Link>
+            </h1>
             <nav>
                 <ul>
                     <li>
