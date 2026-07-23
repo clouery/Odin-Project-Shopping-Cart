@@ -4,24 +4,20 @@ import { createBrowserRouter, RouterProvider, Link, Outlet } from "react-router"
 import './index.css'
 import './main.css'
 import Shop from './components/Shop.jsx';
-import Cart from './components/Cart.jsx';
 import Checkout from './components/Checkout.jsx';
 import Home from './components/Home.jsx';
 import Header from './components/Header.jsx';
 import Footer from './components/Footer.jsx';
+import { CartProvider } from './context/CartContext.jsx';
 
 
 const router = createBrowserRouter([
   {
     element: <Layout />,
-    children:[
+    children: [
       {
         path: "/",
         element: <Home />,
-      },
-      {
-        path: "cart",
-        element: <Cart />,
       },
       {
         path: "shop",
@@ -37,18 +33,22 @@ const router = createBrowserRouter([
 
 function Layout() {
   return (
-    <div className="container">
-      <Header />
-      <main>
-        <Outlet />
-      </main>
-      <Footer />
-    </div>
+    <CartProvider>
+      <div className="container">
+        <Header />
+        <main>
+          <Outlet />
+        </main>
+        <Footer />
+      </div>
+
+    </CartProvider>
   )
 
 }
+
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <RouterProvider router={router} />
+      <RouterProvider router={router} />
   </StrictMode>,
 )
